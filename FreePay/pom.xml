@@ -84,6 +84,12 @@
 			<artifactId>commons-fileupload</artifactId>
 			<version>1.3</version>
 		</dependency>
+
+		<dependency>
+			<groupId>org.primefaces.themes</groupId>
+			<artifactId>bootstrap</artifactId>
+			<version>1.0.10</version>
+		</dependency>
 		
 		<!--4.Dependencias Log4j-->
 		
