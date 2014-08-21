@@ -12,8 +12,70 @@
 	</h:head>
 	<h:body>
 		<center>
-			<h:form>
-				
+
+<br/>
+<br/>
+<br/>
+<br/>
+
+	<h:form>
+          
+          <p:panelGrid style="width:30%;" >
+          
+          	<p:row>
+				<p:column colspan="2">
+					<center>
+					 	 <p:outputLabel style="font-size:30px;" value="FreePay Desktop"></p:outputLabel>
+			    	</center>
+				</p:column>          	 
+          	</p:row>
+          	
+          	<p:row  rowspan="2">
+				<p:column colspan="2">
+					<center>
+					    <p:outputLabel value="Datafono virtual"></p:outputLabel>
+					</center>
+				</p:column>          	 
+          	</p:row>
+          
+          
+            <p:row>
+				<p:column>
+					    <p:outputLabel value="Valor a pagar"></p:outputLabel>
+				</p:column>  
+				<p:column>
+					    <p:inputText label="Valor a pagar" required="true" requiredMessage="Debe ingresar el valor a pagar." validatorMessage="El valor a pagar debe ser un numero mayor a cero.">
+					    	 <f:validateLongRange minimum="1" ></f:validateLongRange>
+                        </p:inputText>
+				</p:column>  				        	 
+          	</p:row>
+          	 
+          	 <p:row>
+				<p:column>
+					    <p:outputLabel  value="Referencia"> </p:outputLabel>
+				</p:column>  
+				<p:column>
+					    <p:inputText label="Referencia">
+					   			 <f:validateLength minimum="0" maximum="30" ></f:validateLength>
+					    </p:inputText>
+				</p:column>  				        	 
+          	</p:row>
+          	
+             <p:row>
+				<p:column colspan="2">
+					<center>
+          	 			<p:commandButton update="@all" actionListener="#{CobroBean.agregarCliente}" value="Generar cobro" ></p:commandButton>
+          	 		</center>
+          		</p:column>
+          	 </p:row>
+          	 <p:row>
+          	 	<p:column colspan="2">
+          	 		<p:messages></p:messages>
+          	    </p:column>
+          	 </p:row>
+          	 
+          </p:panelGrid>		
+			
 			</h:form>			
 		</center>		
 	</h:body>
