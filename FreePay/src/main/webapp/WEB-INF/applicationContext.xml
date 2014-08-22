@@ -33,4 +33,17 @@
 		<constructor-arg ref="dataSource"></constructor-arg>
 	</bean>
 	
+	<!--Inicializo Repositorios-->
+	<bean id="datafonoRepository" class="com.freepay.infraestructura.persistencia.impl.DatafonoRepository"></bean>
+	
+	<!--Inicializo Servicios de Dominio-->
+	<bean id="datafonoService" class="com.freepay.dominio.servicio.DatafonoService">
+		<property name="datafonoRepository" ref="datafonoRepository" ></property>
+	</bean>
+	
+	<!--Inicializo Servicios de Dominio-->
+	<bean id="generarCobroBean" class="com.freepay.aplicacion.GenerarCobroBean">
+		<property name="datafonoService" ref="datafonoService" ></property>
+	</bean> 
+	
 </beans>
