@@ -1,0 +1,16 @@
+.ui-widget {
+    font-size: 100%;
+ }
+.ui-widget .ui-widget {
+    font-size: 100%;
+ }
+.ui-panelgrid td, .ui-panelgrid tr
+{
+    border-style:none;
+    border-color: #00CCFF;
+    color:white;
+}
+.ui-panelgrid td {
+    background-color:  #00CCFF !important;
+    
+}
