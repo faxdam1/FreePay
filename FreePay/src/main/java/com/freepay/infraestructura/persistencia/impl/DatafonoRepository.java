@@ -2,11 +2,9 @@ package com.freepay.infraestructura.persistencia.impl;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
-
 import com.freepay.dominio.modelo.datafono.Cobro;
 import com.freepay.dominio.modelo.datafono.IDatafonoRepository;
 
@@ -17,9 +15,9 @@ public class DatafonoRepository implements IDatafonoRepository{
 	private JdbcTemplate jdbcTemplate;
 	
 	
-	public boolean guardarCobro(Cobro cobro){
-
-		return this.jdbcTemplate.update("insert into cobro (codigo,referencia,valorPagar) values (?,?,?)",cobro.getCodigo(), cobro.getReferencia(),cobro.getValorPagar())>0?true:false;
+	public int guardarCobro(Cobro cobro){
+		
+		return this.jdbcTemplate.update("insert into cobro (codigo,referencia,valorPagar) values (?,?,?)",cobro.getCodigo(), cobro.getReferencia(),cobro.getValorPagar());
 	
 	}
 	

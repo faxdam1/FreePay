@@ -6,7 +6,7 @@ public class Cobro {
 	private String referencia;
 	private double valorPagar; 
 	
-	
+	public Cobro(){}
 	public Cobro(int codigo,String referencia, double valorPagar){
 	    this.codigo=codigo;
 		this.referencia=referencia;
