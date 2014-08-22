@@ -16,7 +16,7 @@ import com.freepay.dominio.modelo.datafono.Cobro;
 @Controller("generarCobroBean") 
 @ManagedBean(name = "generarCobroBean")
 @ViewScoped
-public class generarCobroBean  implements Serializable  {
+public class GenerarCobroBean  implements Serializable  {
 
 	private DatafonoService datafonoService;
 	
