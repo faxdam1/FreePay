@@ -2,6 +2,6 @@ package com.freepay.dominio.modelo.datafono;
 
 public interface IDatafonoRepository {
 	
-	public boolean guardarCobro(Cobro cobro);
+	public void guardarCobro(Cobro cobro);
 	
 }

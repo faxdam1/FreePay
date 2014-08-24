@@ -160,12 +160,34 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.31</version>
 		</dependency>
+		
+	<!--8.Hibernate  -->
+	<dependency>
+		<groupId>org.hibernate</groupId>
+		<artifactId>hibernate-core</artifactId>
+		<version>${hibernate.version}</version>
+	</dependency>
+	<dependency>
+		<groupId>org.hibernate</groupId>
+		<artifactId>hibernate-entitymanager</artifactId>
+		<version>${hibernate.version}</version>
+	</dependency>
+
+	  <dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-orm</artifactId>
+		<version>${spring.version}</version>
+	  </dependency>
+ 
 
 	</dependencies>
 	
 	<properties>
 		<org.springframework.security.version>3.2.3.RELEASE</org.springframework.security.version>
 		<spring.version>4.0.0.RELEASE</spring.version>
+		<hibernate.version>3.6.10.Final</hibernate.version>
+			
+		
 	</properties>
 	
 	<repositories>
@@ -175,6 +197,17 @@
 			<url>http://repository.primefaces.org</url>
 			<layout>default</layout>
 		</repository>
+	<repository>
+		<id>com.springsource.repository.bundles.release</id>
+		<name>SpringSource Enterprise Bundle Repository - SpringSource Bundle Releases</name>
+		<url>http://repository.springsource.com/maven/bundles/release</url>
+	</repository>
+
+	<repository>
+		<id>com.springsource.repository.bundles.external</id>
+		<name>SpringSource Enterprise Bundle Repository - External Bundle Releases</name>
+		<url>http://repository.springsource.com/maven/bundles/external</url>
+	</repository>
 	</repositories>
 	
 	<build>

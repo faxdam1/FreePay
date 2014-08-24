@@ -29,20 +29,38 @@
 		<property name="password" value="abm.023" />
 	</bean>
 
-	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
-		<constructor-arg ref="dataSource"></constructor-arg>
+<!-- 	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate"> -->
+<!-- 		<constructor-arg ref="dataSource"></constructor-arg> -->
+<!-- 	</bean> -->
+	
+	
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+	 	<property name="dataSource" ref="dataSource"></property>
+	 	<property name="mappingLocations">
+	 		<list>
+	 			<value>classpath:com/freepay/infraestructura/persistencia/hibernate/Cobro.hbm.xml</value>
+	 		</list>
+	 	</property>
+	 	<property name="hibernateProperties">
+	 		<value>
+	 			hibernate.format_sql=true
+	 			hibernate.show_sql=true;
+	 		</value>
+	 	</property>
 	</bean>
 	
 	<!--Inicializo Repositorios-->
-	<bean id="datafonoRepository" class="com.freepay.infraestructura.persistencia.impl.DatafonoRepository"></bean>
-	
+	<bean id="datafonoRepository" class="com.freepay.infraestructura.persistencia.impl.DatafonoRepository">
+		<constructor-arg name="sessionFactory" ref="sessionFactory"></constructor-arg>
+	</bean>
+		 
 	<!--Inicializo Servicios de Dominio-->
 	<bean id="datafonoService" class="com.freepay.dominio.servicio.DatafonoService">
 		<property name="datafonoRepository" ref="datafonoRepository" ></property>
 	</bean>
 	
-	<!--Inicializo Servicios de Dominio-->
-	<bean id="generarCobroBean" class="com.freepay.aplicacion.GenerarCobroBean">
+	<!--Inicializo Controlador-->
+	<bean id="generarCobroBean" class="com.freepay.aplicacion.GenerarCobroBean" >
 		<property name="datafonoService" ref="datafonoService" ></property>
 	</bean> 
 	

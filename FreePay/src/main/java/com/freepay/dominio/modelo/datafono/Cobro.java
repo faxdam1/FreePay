@@ -5,10 +5,11 @@ import com.freepay.infraestructura.shared.Entity;
 public class Cobro implements Entity<Cobro> {
 
     private int codigo;
-    private int codigoDatafono;
+	private int codigoDatafono;
     private String referencia;
     private int valorPagar;
-
+	
+	public Cobro(){}
     public Cobro(final int codigoDatafono, final String referencia,final int valorPagar) {
         this.codigo = generarCodigo();
         this.codigoDatafono=codigoDatafono;
@@ -17,16 +18,36 @@ public class Cobro implements Entity<Cobro> {
     }
    
     private int generarCodigo(){
-         return (int)Math.random();
+         return (int) Math.floor(Math.random()*(100000000-1000000+1)+1000000);
+    }
+   
+    public void cambiarReferencia(String referencia){
+    	this.referencia=referencia;
     }
     
-    public int getCodigo(){
-    	return this.codigo;
+    public void cambiarValorPagar(int valorPagar){
+    	this.valorPagar=valorPagar;
     }
     
+    public int codigo() {
+		return codigo;
+	}
+    
+    public int codigoDatafono(){
+		return codigoDatafono;
+	}
+	
+	public String referencia(){
+		return referencia;
+	}
+	
+	public int valorPagar(){
+		return valorPagar;
+	}
+	    
     @Override
     public boolean sameIdentityAs(final Cobro other) {
         return other!=null&&other.codigo == this.codigo;
     }
-    
- }
+ 
+}

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+                                         "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+ <session-factory>
+  <property name="hibernate.connection.url"></property>
+ 		<property name="hibernate.bytecode.use_reflection_optimizer">true</property>
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.username">darango</property>
+		<property name="hibernate.connection.password">da.023</property>
+		<property name="hibernate.connection.url">jdbc:mysql://181.143.12.230:3306/freepay</property>
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+		<property name="show_sql">true</property>
+		<mapping resource="com/freepay/infraestructura/persistencia/hibernate/Cobro.hbm.xml" />
+ </session-factory>
+</hibernate-configuration>

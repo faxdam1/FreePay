@@ -6,13 +6,12 @@ public class DatafonoService {
 	
 	private IDatafonoRepository datafonoRepository; 
 	
-	public int generarCobro(final int codigoDatafono,final String referencia,final int valorPagar){
-    	Cobro cobro=new  Cobro(codigoDatafono,referencia,valorPagar);
-    	if(datafonoRepository.guardarCobro(cobro)){
-    		return cobro.getCodigo();
-    	}else{
-    		return 0;
-    	}
+	public Cobro generarCobro(final int codigoDatafono,final String referencia,final int valorPagar){
+		try{
+	    	Cobro cobro=new  Cobro(codigoDatafono,referencia,valorPagar);
+	    	datafonoRepository.guardarCobro(cobro);
+	    	return cobro;
+		}catch(Exception ex){throw ex;}
     }
 	
 	public void setDatafonoRepository(IDatafonoRepository datafonoRepository) {

@@ -24,7 +24,7 @@
  
  
  	<welcome-file-list>
- 		<welcome-file>View/GenerarCobro/generarCobroView.xhtml</welcome-file>
+ 		<welcome-file>View/GenerarCobro/GenerarCobroView.xhtml</welcome-file>
  	</welcome-file-list>
  	
  	<servlet>
@@ -58,5 +58,7 @@
 				<param-name>primefaces.THEME</param-name>
 				<param-value>bootstrap</param-value>
 	</context-param>
+
+
 
  </web-app>
