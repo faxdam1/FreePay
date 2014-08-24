@@ -49,5 +49,12 @@ public class Cobro implements Entity<Cobro> {
     public boolean sameIdentityAs(final Cobro other) {
         return other!=null&&other.codigo == this.codigo;
     }
- 
+    
+    public static String validarValorPagar(int valorPagar) {
+    	String mensaje = null;
+    	if(valorPagar <= 0) {
+    		mensaje = "El valor a pagar no puede ser menor o igual a cero.";
+    	}
+    	return mensaje;
+    }
 }
