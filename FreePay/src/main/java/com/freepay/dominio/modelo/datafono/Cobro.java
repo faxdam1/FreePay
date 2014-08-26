@@ -1,8 +1,10 @@
 package com.freepay.dominio.modelo.datafono;
 
+import java.io.Serializable;
+
 import com.freepay.infraestructura.shared.Entity;
 
-public class Cobro implements Entity<Cobro> {
+public class Cobro implements Entity<Cobro>  {
 
     private int codigo;
 	private int codigoDatafono;
