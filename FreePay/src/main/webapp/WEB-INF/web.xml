@@ -22,6 +22,9 @@
  		</listener-class>
  	</listener>
  
+    <session-config>
+    	<session-timeout>1</session-timeout>
+    </session-config>
  
  	<welcome-file-list>
  		<welcome-file>View/GenerarCobro/GenerarCobroView.xhtml</welcome-file>
@@ -44,15 +47,15 @@
  		<param-value>client</param-value>
  	</context-param>
  	
- 	<context-param>
-        <param-name>com.sun.faces.numberOfViewsInSession</param-name>
-        <param-value>50</param-value>
-    </context-param>
+<!--  	<context-param> -->
+<!--         <param-name>com.sun.faces.numberOfViewsInSession</param-name> -->
+<!--         <param-value>50</param-value> -->
+<!--     </context-param> -->
 
-    <context-param>
-        <param-name>com.sun.faces.numberOfLogicalViews</param-name>
-        <param-value>200</param-value>
-    </context-param>
+<!--     <context-param> -->
+<!--         <param-name>com.sun.faces.numberOfLogicalViews</param-name> -->
+<!--         <param-value>200</param-value> -->
+<!--     </context-param> -->
     
     <context-param>
 				<param-name>primefaces.THEME</param-name>
