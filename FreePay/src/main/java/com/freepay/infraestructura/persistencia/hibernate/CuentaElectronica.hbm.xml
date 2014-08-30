@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 23/08/2014 05:46:13 PM by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="CuentaElectronica" table="cuenta_electronica" catalog="freepay">
+        <composite-id name="id" class="CuentaElectronicaId">
+            <key-property name="idCuentaElectronica" type="int">
+                <column name="id_cuenta_electronica" />
+            </key-property>
+            <key-property name="numeroIdentificacion" type="int">
+                <column name="numero_identificacion" />
+            </key-property>
+            <key-property name="tipoIdentificacion" type="string">
+                <column name="tipo_identificacion" length="2" />
+            </key-property>
+        </composite-id>
+        <property name="saldo" type="float">
+            <column name="saldo" precision="15" not-null="true">
+                <comment>Saldo en la cuenta</comment>
+            </column>
+        </property>
+        <property name="estado" type="char">
+            <column name="estado" length="1" not-null="true">
+                <comment>Estado: 'I':INACTIVA 'A':ACTIVA</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

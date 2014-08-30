@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 23/08/2014 05:46:13 PM by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="TipoTransaccion" table="tipo_transaccion" catalog="freepay">
+        <id name="idTipoTransaccion" type="int">
+            <column name="id_tipo_transaccion" />
+            <generator class="assigned" />
+        </id>
+        <property name="descripcion" type="string">
+            <column name="descripcion" length="60" not-null="true">
+                <comment>Descripcion del tipo de transacci&#243;n</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

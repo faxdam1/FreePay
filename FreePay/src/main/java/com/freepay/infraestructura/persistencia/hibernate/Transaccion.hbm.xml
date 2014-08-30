@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 23/08/2014 05:46:13 PM by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="Transaccion" table="transaccion" catalog="freepay">
+        <composite-id name="id" class="TransaccionId">
+            <key-property name="idTransaccion" type="int">
+                <column name="id_transaccion" />
+            </key-property>
+            <key-property name="idCuentaElectronica" type="int">
+                <column name="id_cuenta_electronica" />
+            </key-property>
+            <key-property name="idCuentaDestino" type="int">
+                <column name="id_cuenta_destino" />
+            </key-property>
+            <key-property name="idTipoTransaccion" type="int">
+                <column name="id_tipo_transaccion" />
+            </key-property>
+            <key-property name="fechaTransaccion" type="timestamp">
+                <column name="fecha_transaccion" length="19" />
+            </key-property>
+            <key-property name="valor" type="float">
+                <column name="valor" precision="15" />
+            </key-property>
+        </composite-id>
+        <property name="mensaje" type="int">
+            <column name="mensaje" not-null="true">
+                <comment>Mensaje resultado de la transaccion</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

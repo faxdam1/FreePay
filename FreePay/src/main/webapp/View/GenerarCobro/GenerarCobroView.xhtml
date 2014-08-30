@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	>
+	<h:head>
+		<title>FreePay</title>
+		
+		<link rel="stylesheet" type="text/css" href="/FreePay/View/resources/css/style.css" />
+	</h:head>
+	<h:body>
+
+    
+	<center>
+
+<br/>
+
+	<h:form>
+          
+          <p:panelGrid  style="width:30%;" >
+          
+          	<p:row>
+				<p:column colspan="2">
+					<br/>
+					<center>
+					 	 <p:outputLabel style="font-size:30px;font-weight: bold" value="FreePay Web"></p:outputLabel>
+			    	</center>
+			    	<br/>
+				</p:column>          	 
+          	</p:row>
+          	
+          	<p:row  rowspan="2">
+				<p:column colspan="2">
+					<center>
+					    <p:outputLabel style="font-size:20px;font-weight: bold" value="Datafono virtual"></p:outputLabel>
+					</center>
+					<br/>
+				</p:column>          	 
+          	</p:row>
+          
+          
+            <p:row>
+				<p:column>
+					    <p:outputLabel style="font-weight: bold"  value="Valor a pagar"></p:outputLabel>
+				</p:column>  
+				<p:column>
+					    <p:inputText value="#{generarCobroBean.valorPagar}" style="color:red;font-weight: bold;width:80%;" label="Valor a pagar $" required="true" requiredMessage="Debe ingresar el valor a pagar." validatorMessage="El valor a pagar debe ser un numero mayor a cero.">
+					    	 <f:validateLongRange minimum="1" ></f:validateLongRange>
+                        </p:inputText>
+				</p:column>  				        	 
+          	</p:row>
+          	 
+          	 <p:row>
+				<p:column>
+					    <p:outputLabel style="font-weight: bold;"  value="Referencia"> </p:outputLabel>
+				</p:column>  
+				<p:column>
+					    <p:inputText value="#{generarCobroBean.referencia}" style="width:80%;" label="Referencia"  maxlength="30"/>
+				</p:column>  				        	 
+          
+           	</p:row>
+          	
+             <p:row>
+             	
+				<p:column colspan="2">
+					<br/>
+					<center>
+          	 			<p:commandButton update="@all" actionListener="#{generarCobroBean.generarCobro}" value="Generar cobro" ></p:commandButton>
+          	 		</center>
+          		</p:column>
+          	 </p:row>
+          	 <p:row>
+          	 	<p:column colspan="2">
+          	 	<br/>
+          	 		<p:messages></p:messages>
+          	    </p:column>
+          	 </p:row>
+          	 
+          </p:panelGrid>
+          		
+			 <ui:include  src="/View/resources/SessionTimeOut.xhtml" ></ui:include>
+			 
+			</h:form>			
+		</center>		
+		
+	</h:body>
+</html>
+
