@@ -26,9 +26,14 @@ public class DatafonoRepository implements IDatafonoRepository{
 		}catch(DataAccessException ex){throw ex;}
      }
 	
-//  Ejemplo consulta
-//	List lisCobro=hibernateTemplate.find("from Cobro");		
-//	if(lisCobro.isEmpty()) return null;
-//	return ((List<Cobro>)lisCobro).get(0);	
+	
+	public Cobro consultarCobro(int codigoCobro){
+		try{
+			List lisCobro=hibernateTemplate.find("from Cobro where codigo=?",codigoCobro);		
+			if(lisCobro.isEmpty()) return null;
+			return ((List<Cobro>)lisCobro).get(0);	
+		}catch(DataAccessException ex){throw ex;}
+		
+	}
 
 }

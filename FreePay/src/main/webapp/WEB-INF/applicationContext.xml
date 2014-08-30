@@ -59,9 +59,17 @@
 		<property name="datafonoRepository" ref="datafonoRepository" ></property>
 	</bean>
 	
+	<bean id="transaccionService" class="com.freepay.dominio.servicio.TransaccionService">
+		<property name="datafonoRepository" ref="datafonoRepository" ></property>
+	</bean>
+	
 	<!--Inicializo Controlador-->
 	<bean id="generarCobroBean" class="com.freepay.aplicacion.GenerarCobroBean"  >
 		<property name="datafonoService" ref="datafonoService" ></property>
+	</bean> 
+	
+     <bean id="pago" class="com.freepay.aplicacion.PagoRest"  >
+		<property name="transaccionService" ref="transaccionService" ></property>
 	</bean> 
 	
 </beans>

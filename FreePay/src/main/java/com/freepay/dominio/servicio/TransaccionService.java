@@ -1,7 +1,15 @@
 package com.freepay.dominio.servicio;
 
+import com.freepay.dominio.modelo.datafono.IDatafonoRepository;
+
 public class TransaccionService {
 
+		private IDatafonoRepository datafonoRepository;
+		
+		public void setDatafonoRepository(IDatafonoRepository datafonoRepository) {
+			this.datafonoRepository = datafonoRepository;
+		}
+		
 	    public String procesarPago(int codigoCobro,int codigoCuenta){
 	    		
 	    	
@@ -9,7 +17,7 @@ public class TransaccionService {
 	    	
 	    	
 	    	
-	    	return null;
+	    	return "Hola Mundo"+codigoCobro+codigoCuenta;
 	    }
 	    
 	    //Crear la transaccion de compra
