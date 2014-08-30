@@ -6,9 +6,9 @@
     
     	<class name="com.freepay.dominio.modelo.datafono.Cobro" table="cobro" catalog="freepay">
         <id name="codigo" column="codigo" type="int" />
-        <property name="codigoDatafono" column="codigodatafono" type="int" />
+        <property name="codigoDatafono" column="codigoDatafono" type="int" />
         <property name="referencia" type="string" column="referencia" length="50" not-null="true" />
-        <property name="valorPagar" type="int" column="valorpagar" not-null="true" />
+        <property name="valorPagar" type="int" column="valorPagar" not-null="true" />
     
     </class>
 </hibernate-mapping>

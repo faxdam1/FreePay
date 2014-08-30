@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 30/08/2014 02:54:13 PM by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="Cuenta" table="cuenta" catalog="freepay">
+        <id name="codigo" type="java.lang.Integer">
+            <column name="codigo" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="usuario" class="Usuario" fetch="select">
+            <column name="codigoUsuario" not-null="true" />
+        </many-to-one>
+        <property name="saldo" type="int">
+            <column name="saldo" not-null="true" />
+        </property>
+        <set name="transaccions" table="transaccion" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="codigoCuenta" not-null="true">
+                    <comment>Identificador de la cuenta electronica</comment>
+                </column>
+            </key>
+            <one-to-many class="Transaccion" />
+        </set>
+    </class>
+</hibernate-mapping>

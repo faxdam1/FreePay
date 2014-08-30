@@ -1,20 +1,21 @@
 package com.freepay.dominio.modelo.datafono;
 
+import com.freepay.dominio.modelo.empresa.Empresa;
 import com.freepay.infraestructura.shared.Entity;
 
 public class Datafono implements Entity<Datafono>{
 
     private int codigo;
     private String nombre;
-    private int codigoEmpresa;
+    private Empresa empresa;
 
-    public Datafono(final int codigo, final String nombre, final int codigoEmpresa) {
+    public Datafono(final int codigo, final String nombre, final Empresa empresa) {
         this.codigo = codigo;
         this.nombre = nombre;
-        this.codigoEmpresa=codigoEmpresa;
+        this.empresa=empresa;
     }
     
-    public int getCodigo(){
+    public int codigo(){
     	return this.codigo;
     }
     

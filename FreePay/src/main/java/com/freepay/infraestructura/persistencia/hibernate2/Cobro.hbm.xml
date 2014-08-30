@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 30/08/2014 02:54:13 PM by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="Cobro" table="cobro" catalog="freepay">
+        <composite-id name="id" class="CobroId">
+            <key-property name="codigo" type="int">
+                <column name="codigo" />
+            </key-property>
+            <key-property name="codigoDatafono" type="int">
+                <column name="codigoDatafono" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="datafono" class="Datafono" update="false" insert="false" fetch="select">
+            <column name="codigoDatafono" not-null="true" />
+        </many-to-one>
+        <property name="referencia" type="string">
+            <column name="referencia" length="50" not-null="true" />
+        </property>
+        <property name="valorPagar" type="int">
+            <column name="valorPagar" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

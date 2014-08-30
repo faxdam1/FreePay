@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 30/08/2014 02:54:13 PM by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="Usuario" table="usuario" catalog="freepay">
+        <id name="codigo" type="int">
+            <column name="codigo" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="tipoIdentificacion" class="TipoIdentificacion" fetch="select">
+            <column name="tipoIdentificacion" not-null="true" />
+        </many-to-one>
+        <property name="identificacion" type="int">
+            <column name="identificacion" not-null="true" />
+        </property>
+        <property name="usuario" type="string">
+            <column name="usuario" length="60" not-null="true" />
+        </property>
+        <property name="clave" type="string">
+            <column name="clave" length="30" not-null="true" />
+        </property>
+        <set name="cuentas" table="cuenta" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="codigoUsuario" not-null="true" />
+            </key>
+            <one-to-many class="Cuenta" />
+        </set>
+        <set name="empresas" table="empresa" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="codigoUsuario" not-null="true" />
+            </key>
+            <one-to-many class="Empresa" />
+        </set>
+    </class>
+</hibernate-mapping>

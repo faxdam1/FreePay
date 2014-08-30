@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 30/08/2014 02:54:13 PM by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="Transaccion" table="transaccion" catalog="freepay">
+        <id name="codigo" type="java.lang.Integer">
+            <column name="codigo" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="tipoTransaccion" class="TipoTransaccion" fetch="select">
+            <column name="tipoTransaccion" not-null="true" />
+        </many-to-one>
+        <many-to-one name="cuenta" class="Cuenta" fetch="select">
+            <column name="codigoCuenta" not-null="true">
+                <comment>Identificador de la cuenta electronica</comment>
+            </column>
+        </many-to-one>
+        <property name="codigoCuentaRef" type="int">
+            <column name="codigoCuentaRef" not-null="true">
+                <comment>Identificador de la cuenta de destino</comment>
+            </column>
+        </property>
+        <property name="fechaHora" type="timestamp">
+            <column name="fechaHora" length="19" not-null="true">
+                <comment>Identificador tipo transaccion</comment>
+            </column>
+        </property>
+        <property name="codigoComision" type="java.lang.Integer">
+            <column name="codigoComision">
+                <comment>Fecha de la transaccion</comment>
+            </column>
+        </property>
+        <property name="valor" type="int">
+            <column name="valor" not-null="true">
+                <comment>Valor del movimiento realizado</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>
