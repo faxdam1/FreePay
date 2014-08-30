@@ -5,10 +5,11 @@
     xmlns:ui="http://java.sun.com/jsf/facelets"
     xmlns:p="http://primefaces.org/ui"
     >
-           <p:idleMonitor  onactive="sessionTimeOutDialog.show();" timeout="#{session.maxInactiveInterval * 1000}" />
+		
+           <p:idleMonitor  onactive="PF('sessionTimeOutDialog').show();" timeout="#{session.maxInactiveInterval * 1000}" />
            <p:dialog appendToBody="true" header="Sesion finalizada" widgetVar="sessionTimeOutDialog"  modal="true" position="center" closable="false" width="400" visible="false">
               
-                <p:outputLabel value="Se detecto un periodo de inactividad de 60 minutos, por lo que su sesion finalizo."></p:outputLabel>
+                <p:outputLabel value="Se detecto un periodo de inactividad de #{session.maxInactiveInterval/60} minutos, por lo que su sesion finalizo."></p:outputLabel>
                 <br/>
                 <center>
                 <p:commandButton id="confirmBackToLogin" type="button" value="Aceptar" onclick="window.location='';"></p:commandButton>
