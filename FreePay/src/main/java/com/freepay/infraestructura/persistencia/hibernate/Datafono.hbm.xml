@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 30/08/2014 02:54:13 PM by Hibernate Tools 4.0.0 -->
+<hibernate-mapping default-access="field">
+
+    <class name="com.freepay.dominio.modelo.datafono.Datafono" table="datafono" catalog="freepay">
+    	
+    	<id name="codigo" type="int">
+            <column name="codigo" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="empresa" class="com.freepay.dominio.modelo.empresa.Empresa" fetch="select">
+            <column name="codigoEmpresa" not-null="true" />
+        </many-to-one>
+        
+        <property name="nombre" type="string" column="nombre" > </property>
+        
+    </class>
+</hibernate-mapping>

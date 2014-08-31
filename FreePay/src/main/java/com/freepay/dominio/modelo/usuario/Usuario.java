@@ -1,5 +1,9 @@
 package com.freepay.dominio.modelo.usuario;
 
+import java.util.Collections;
+import java.util.List;
+
+import com.freepay.dominio.modelo.cuenta.Cuenta;
 import com.freepay.infraestructura.shared.Entity;
 
 public class Usuario implements Entity<Usuario>  {
@@ -9,7 +13,9 @@ public class Usuario implements Entity<Usuario>  {
 	String clave;
 	int codigo;
 	TipoIdentificacion tipoIdentificacion;
+	List<Cuenta> cuentas=Collections.emptyList();
 	
+	public Usuario(){}
 	public Usuario(final long identificacion,final TipoIdentificacion tipoIdentificacion,final String usuario, final String clave){
 		this.identificacion=identificacion;
 		this.tipoIdentificacion=tipoIdentificacion;
@@ -32,6 +38,10 @@ public class Usuario implements Entity<Usuario>  {
 	public TipoIdentificacion tipoIdentificacion(){
 		return tipoIdentificacion;
 	}	
+	public List<Cuenta> cuentas(){
+		return cuentas;
+	}
+
 	
 	@Override
 	public boolean sameIdentityAs(final Usuario other) {

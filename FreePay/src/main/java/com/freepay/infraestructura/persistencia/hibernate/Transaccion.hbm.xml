@@ -1,33 +1,48 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 23/08/2014 05:46:13 PM by Hibernate Tools 4.0.0 -->
-<hibernate-mapping>
-    <class name="Transaccion" table="transaccion" catalog="freepay">
-        <composite-id name="id" class="TransaccionId">
-            <key-property name="idTransaccion" type="int">
-                <column name="id_transaccion" />
-            </key-property>
-            <key-property name="idCuentaElectronica" type="int">
-                <column name="id_cuenta_electronica" />
-            </key-property>
-            <key-property name="idCuentaDestino" type="int">
-                <column name="id_cuenta_destino" />
-            </key-property>
-            <key-property name="idTipoTransaccion" type="int">
-                <column name="id_tipo_transaccion" />
-            </key-property>
-            <key-property name="fechaTransaccion" type="timestamp">
-                <column name="fecha_transaccion" length="19" />
-            </key-property>
-            <key-property name="valor" type="float">
-                <column name="valor" precision="15" />
-            </key-property>
-        </composite-id>
-        <property name="mensaje" type="int">
-            <column name="mensaje" not-null="true">
-                <comment>Mensaje resultado de la transaccion</comment>
+<!-- Generated 30/08/2014 02:54:13 PM by Hibernate Tools 4.0.0 -->
+<hibernate-mapping default-access="field">
+    <class name="com.freepay.dominio.modelo.transaccion.Transaccion" table="transaccion" catalog="freepay">
+       
+        <id name="codigo" type="java.lang.Integer" >
+            <column name="codigo" />
+             <generator class="identity"  />
+        </id>
+        
+        <many-to-one name="tipoTransaccion" class="com.freepay.dominio.modelo.transaccion.TipoTransaccion" fetch="select">
+            <column name="tipoTransaccion" not-null="true" />
+        </many-to-one>
+
+        <many-to-one name="cuenta" class="com.freepay.dominio.modelo.cuenta.Cuenta" fetch="select">
+            <column name="codigoCuenta" not-null="true">
+                <comment>Identificador de la cuenta electronica</comment>
+            </column>
+        </many-to-one>
+       
+       <property name="cuentaRef" type="java.lang.Integer">
+              <column name="codigoCuentaRef" not-null="true">
+                <comment>Identificador de la cuenta electronica</comment>
+              </column>
+        </property>
+            
+        <property name="fechaHora" type="date">
+            <column name="fechaHora"  >
+                <comment>Identificador tipo transaccion</comment>
             </column>
         </property>
+        
+        <property name="codigoComision" type="java.lang.Integer">
+            <column name="codigoComision">
+                <comment>Fecha de la transaccion</comment>
+            </column>
+        </property>
+        
+        <property name="valor" type="long">
+            <column name="valor" not-null="true">
+                <comment>Valor del movimiento realizado</comment>
+            </column>
+        </property>
+        
     </class>
 </hibernate-mapping>

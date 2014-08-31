@@ -47,10 +47,18 @@ public class Cobro implements Entity<Cobro>  {
 	public int valorPagar(){
 		return valorPagar;
 	}
+	
+	public int estado(){
+		return estado();
+	}
 	    
     @Override
     public boolean sameIdentityAs(final Cobro other) {
         return other!=null&&other.codigo == this.codigo;
+    }
+    
+    public void pagar(){
+    	this.estado=1;
     }
     
     public static String validarValorPagar(int valorPagar) {

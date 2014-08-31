@@ -10,20 +10,20 @@ public class Transaccion  implements Entity<Transaccion>{
 
 	int codigo;
 	Cuenta cuenta;
-	Cuenta  cuentaRef;
+	int  cuentaRef;
 	Date fechaHora;
 	int codigoComision;
 	long valor;
 	TipoTransaccion tipoTransaccion;
 	
 	public Transaccion(){}
-	public Transaccion(final Cuenta cuenta,final  Cuenta cuentaRef,final Date fechaHora, final int codigoComision, final long valor,final TipoTransaccion tipoTransaccion){
+	public Transaccion(final Cuenta cuenta,final  int cuentaRef, final int codigoComision, final long valor,final TipoTransaccion tipoTransaccion){
 			this.cuenta=cuenta;
 			this.cuentaRef=cuentaRef;
-			this.fechaHora=fechaHora;
 			this.codigoComision=codigoComision;
 			this.valor=valor;
 			this.tipoTransaccion=tipoTransaccion;
+			this.fechaHora=new Date();
 	}
 	
 	public int codigo() {

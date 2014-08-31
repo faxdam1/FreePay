@@ -1,5 +1,8 @@
 package com.freepay.dominio.modelo.empresa;
 
+import java.util.List;
+
+import com.freepay.dominio.modelo.datafono.Datafono;
 import com.freepay.dominio.modelo.usuario.Usuario;
 import com.freepay.infraestructura.shared.Entity;
 
@@ -10,6 +13,7 @@ public class Empresa  implements Entity<Empresa>  {
 	String nit;
 	Usuario usuario;
 	
+	public Empresa(){}
 	public Empresa(final String nombre, final String nit, final Usuario usuario){
 		this.nombre=nombre;
 		this.nit=nit;

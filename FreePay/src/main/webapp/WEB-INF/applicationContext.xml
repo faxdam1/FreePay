@@ -39,6 +39,13 @@
 	 	<property name="mappingLocations">
 	 		<list>
 	 			<value>classpath:com/freepay/infraestructura/persistencia/hibernate/Cobro.hbm.xml</value>
+	 			<value>classpath:com/freepay/infraestructura/persistencia/hibernate/Datafono.hbm.xml</value>
+	 			<value>classpath:com/freepay/infraestructura/persistencia/hibernate/Empresa.hbm.xml</value>
+	 			<value>classpath:com/freepay/infraestructura/persistencia/hibernate/Usuario.hbm.xml</value>
+	 			<value>classpath:com/freepay/infraestructura/persistencia/hibernate/TipoIdentificacion.hbm.xml</value>
+	 			<value>classpath:com/freepay/infraestructura/persistencia/hibernate/Cuenta.hbm.xml</value>
+	 			<value>classpath:com/freepay/infraestructura/persistencia/hibernate/Transaccion.hbm.xml</value>
+	 			<value>classpath:com/freepay/infraestructura/persistencia/hibernate/TipoTransaccion.hbm.xml</value>
 	 		</list>
 	 	</property>
 	 	<property name="hibernateProperties">
@@ -52,15 +59,22 @@
 	<!--Inicializo Repositorios-->
 	<bean id="datafonoRepository" class="com.freepay.infraestructura.persistencia.impl.DatafonoRepository">
 		<constructor-arg name="sessionFactory" ref="sessionFactory"></constructor-arg>
+	</bean>	
+	<bean id="cuentaRepository" class="com.freepay.infraestructura.persistencia.impl.CuentaRepository">
+		<constructor-arg name="sessionFactory" ref="sessionFactory"></constructor-arg>
+	</bean>	
+	<bean id="transaccionRepository" class="com.freepay.infraestructura.persistencia.impl.TransaccionRepository">
+		<constructor-arg name="sessionFactory" ref="sessionFactory"></constructor-arg>
 	</bean>
 		 
 	<!--Inicializo Servicios de Dominio-->
 	<bean id="datafonoService" class="com.freepay.dominio.servicio.DatafonoService">
 		<property name="datafonoRepository" ref="datafonoRepository" ></property>
 	</bean>
-	
 	<bean id="transaccionService" class="com.freepay.dominio.servicio.TransaccionService">
 		<property name="datafonoRepository" ref="datafonoRepository" ></property>
+		<property name="cuentaRepository" ref="cuentaRepository" ></property>
+		<property name="transaccionRepository" ref="transaccionRepository" ></property>
 	</bean>
 	
 	<!--Inicializo Controlador-->

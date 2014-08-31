@@ -9,6 +9,7 @@ public class Datafono implements Entity<Datafono>{
     private String nombre;
     private Empresa empresa;
 
+    public Datafono(){}
     public Datafono(final int codigo, final String nombre, final Empresa empresa) {
         this.codigo = codigo;
         this.nombre = nombre;

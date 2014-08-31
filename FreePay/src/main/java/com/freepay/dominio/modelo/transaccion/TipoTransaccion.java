@@ -16,6 +16,12 @@ public class TipoTransaccion implements ValueObject<TipoTransaccion>  {
 		return tipo;
 	}
 	
+	public TipoTransaccion(){}
+	public TipoTransaccion(int codigo,String tipo){
+		this.codigo=codigo;
+		this.tipo=tipo;
+	}
+	
 	@Override
 	public boolean sameValueAs(TipoTransaccion other) {
 		 return other != null && new EqualsBuilder().

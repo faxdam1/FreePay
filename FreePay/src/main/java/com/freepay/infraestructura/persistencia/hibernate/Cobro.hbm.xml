@@ -9,6 +9,6 @@
         <property name="codigoDatafono" column="codigoDatafono" type="int" />
         <property name="referencia" type="string" column="referencia" length="50" not-null="true" />
         <property name="valorPagar" type="int" column="valorPagar" not-null="true" />
-    
+    	<property name="estado" type="int" column="estado" not-null="true" />
     </class>
 </hibernate-mapping>
