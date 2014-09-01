@@ -7,6 +7,6 @@ public interface ITransaccionRepository {
 
 	
 	public TipoTransaccion consultarTipoTransaccion(int codigo);
-	public void procesarPago(Transaccion compra,Transaccion venta, Cobro cobro);
+	public void procesarPago(Cuenta cuenta,Cuenta cuentaReferencia,Transaccion transaccionCompra,Transaccion transaccionVenta, Cobro cobro);
 	
 }

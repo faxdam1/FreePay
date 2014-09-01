@@ -20,19 +20,18 @@ public class TransaccionService {
 	    	try{
 		    
 	    		String mensaje;
-	    		Transaccion transaccion;
-		    	Cobro cobro=datafonoRepository.consultarCobro(codigoCobro);
+	    		Cobro cobro=datafonoRepository.consultarCobro(codigoCobro);
 		    	Cuenta cuenta=cuentaRepository.consultarCuenta(codigoCuenta);
 		    	Cuenta cuentaReferencia=cuentaRepository.consultarCuentaReferencia(cobro.codigoDatafono());
 		    	mensaje= cuenta.retirarSaldo(cobro.valorPagar());
 		    	if(mensaje!=null){return mensaje;}
 		    	mensaje= cuentaReferencia.consignarSaldo(cobro.valorPagar());
 		    	if(mensaje!=null){return mensaje;}
-		    	Transaccion compra =new Transaccion(cuenta,cuentaReferencia.codigo(),0,cobro.valorPagar()*-1,transaccionRepository.consultarTipoTransaccion(TRANSACCION_COMPRA));
-		    	Transaccion venta =new Transaccion(cuentaReferencia,cuenta.codigo(),0,cobro.valorPagar(),transaccionRepository.consultarTipoTransaccion(TRANSACCION_VENTA));
-		    	
-		    	transaccionRepository.procesarPago(compra, venta,cobro);
-	    	
+		    	mensaje=  cobro.pagar();
+		    	if(mensaje!=null){return mensaje;}
+		        Transaccion transaccionCompra=  new Transaccion(cuenta,cuentaReferencia,0,cobro.valorPagar()*-1,transaccionRepository.consultarTipoTransaccion(TRANSACCION_COMPRA));
+		        Transaccion transaccionVenta= new Transaccion(cuentaReferencia,cuenta,0,cobro.valorPagar(),transaccionRepository.consultarTipoTransaccion(TRANSACCION_VENTA));
+		        transaccionRepository.procesarPago(cuenta, cuentaReferencia,transaccionCompra,transaccionVenta,cobro);
 		    	return "Saldo actual: "+cuenta.saldo();
 		    	
 	    	}catch(Exception ex){

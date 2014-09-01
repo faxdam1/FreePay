@@ -22,11 +22,14 @@ public class TransaccionRepository implements ITransaccionRepository {
 		this.hibernateTemplate = new HibernateTemplate(sessionFactory);
 	}
 	
-	public void procesarPago(Transaccion compra,Transaccion venta, Cobro cobro){
+	public void procesarPago(Cuenta cuenta,Cuenta cuentaReferencia,Transaccion transaccionCompra,Transaccion transaccionVenta, Cobro cobro){
 		try{
-			hibernateTemplate.saveOrUpdate(compra);
-			//hibernateTemplate.saveOrUpdate(venta);
-			//hibernateTemplate.save(cobro);
+
+			hibernateTemplate.update(cuenta);
+			hibernateTemplate.update(cuentaReferencia);
+			hibernateTemplate.save(transaccionCompra);
+			hibernateTemplate.save(transaccionVenta);
+			hibernateTemplate.update(cobro);
 		}
 		catch(DataAccessException ex){
 			throw ex;

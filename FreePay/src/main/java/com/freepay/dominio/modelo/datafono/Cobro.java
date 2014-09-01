@@ -57,8 +57,12 @@ public class Cobro implements Entity<Cobro>  {
         return other!=null&&other.codigo == this.codigo;
     }
     
-    public void pagar(){
+    public String pagar(){
+    	if(this.estado==1){
+    		return "Está intentando pagar una cuenta de cobro yá paga.";
+    	}
     	this.estado=1;
+    	return null;
     }
     
     public static String validarValorPagar(int valorPagar) {

@@ -15,11 +15,12 @@
             <column name="saldo" not-null="true" />
         </property>
         
-        <list name="transacciones" table="transaccion" lazy="false" cascade="all">
+        <list name="transacciones" table="transaccion" lazy="false">
 			<key column="codigoCuenta" />
 			<list-index column="codigo" base="1"/>
 			<one-to-many class="com.freepay.dominio.modelo.transaccion.Transaccion" />
 		</list>        
+		
 <!--         <set name="transaccions" table="transaccion" inverse="true" lazy="true" fetch="select"> -->
 <!--             <key> -->
 <!--                 <column name="codigoCuenta" not-null="true"> -->

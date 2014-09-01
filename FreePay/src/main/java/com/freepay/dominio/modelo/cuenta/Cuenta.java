@@ -58,9 +58,6 @@ public class Cuenta  implements Entity<Cuenta> {
 		this.saldo=this.saldo-valorRetiro;	
 		return null;
 	}		
-		
-	public void registrarTransaccion(Transaccion transaccion){
-		this.transacciones.add(transaccion);
-	}
+
 	
 }

@@ -6,7 +6,7 @@
     <class name="com.freepay.dominio.modelo.transaccion.Transaccion" table="transaccion" catalog="freepay">
        
         <id name="codigo" type="java.lang.Integer" >
-            <column name="codigo" />
+            <column name="codigo"  />
              <generator class="identity"  />
         </id>
         
@@ -20,11 +20,11 @@
             </column>
         </many-to-one>
        
-       <property name="cuentaRef" type="java.lang.Integer">
-              <column name="codigoCuentaRef" not-null="true">
+       <many-to-one name="cuentaRef" class="com.freepay.dominio.modelo.cuenta.Cuenta" fetch="select">
+            <column name="codigoCuentaRef" not-null="true">
                 <comment>Identificador de la cuenta electronica</comment>
-              </column>
-        </property>
+            </column>
+        </many-to-one>
             
         <property name="fechaHora" type="date">
             <column name="fechaHora"  >
