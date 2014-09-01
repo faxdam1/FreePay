@@ -24,6 +24,19 @@ public class DatafonoService {
 		}
     }
 	
+	
+	public boolean confirmarPago(Cobro cobro) throws ExcepcionNegocio, Exception {
+		try {
+			Cobro cobroConfirmar=datafonoRepository.consultarCobro(cobro.codigo());
+			if(cobroConfirmar==null)return false;
+			if(cobroConfirmar.estado()==1)return true;
+			return false;
+			
+		} catch(Exception ex) {
+			throw ex;
+		}
+    }
+	
 	public void setDatafonoRepository(IDatafonoRepository datafonoRepository) {
 		this.datafonoRepository = datafonoRepository;
 	}

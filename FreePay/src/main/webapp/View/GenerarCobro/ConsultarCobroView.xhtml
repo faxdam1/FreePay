@@ -96,6 +96,8 @@
           	 </p:row>
           </p:panelGrid>	
           
+            <p:poll interval="20"  listener="#{generarCobroBean.confirmarPago}"  update="msn"  />
+            <p:growl id="msn" showDetail="true" showSummary="true" ></p:growl>
             <ui:include  src="/View/resources/SessionTimeOut.xhtml" ></ui:include>
            
      		</h:form>

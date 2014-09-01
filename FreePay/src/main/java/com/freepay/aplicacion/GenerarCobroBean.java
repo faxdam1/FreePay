@@ -23,12 +23,26 @@ public class GenerarCobroBean  implements Serializable  {
 
 	private DatafonoService datafonoService;
 	private Cobro cobro=new Cobro();
+	private boolean mostrarMensaje=true;
 	
 	public void generarCobro(ActionEvent actionEvent){
 		try{
 			cobro=datafonoService.generarCobro(1,cobro.referencia(),cobro.valorPagar());
 			ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
 			ec.redirect(ec.getRequestContextPath() + "/View/GenerarCobro/ConsultarCobroView.xhtml");
+		}catch (Exception ex) {
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Error", "Error en la creacion del cobro."));
+		}
+	}
+	
+	public void confirmarPago(){
+		try{
+			if(mostrarMensaje){
+				if(datafonoService.confirmarPago(cobro)){
+					FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Confirmacion de pago", "Pago realizado exitosamente."));
+					mostrarMensaje=false;
+				}
+			}
 		}catch (Exception ex) {
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Error", "Error en la creacion del cobro."));
 		}
