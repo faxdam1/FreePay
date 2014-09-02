@@ -25,6 +25,7 @@ public class GenerarCobroBean  implements Serializable  {
 	private Cobro cobro=new Cobro();
 	private boolean mostrarMensaje=true;
 	
+	
 	public void generarCobro(ActionEvent actionEvent){
 		try{
 			cobro=datafonoService.generarCobro(1,cobro.referencia(),cobro.valorPagar());
@@ -39,7 +40,7 @@ public class GenerarCobroBean  implements Serializable  {
 		try{
 			if(mostrarMensaje){
 				if(datafonoService.confirmarPago(cobro)){
-					FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Confirmacion de pago", "Pago realizado exitosamente."));
+					FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Confirmacion de pago: ", "Pago realizado exitosamente."));
 					mostrarMensaje=false;
 				}
 			}
@@ -66,6 +67,14 @@ public class GenerarCobroBean  implements Serializable  {
 
 	public void setValorPagar(int valorPagar) {
 		cobro.cambiarValorPagar(valorPagar);
+	}
+	
+	public boolean isMostrarMensaje() {
+		return mostrarMensaje;
+	}
+
+	public void setMostrarMensaje(boolean mostrarMensaje) {
+		this.mostrarMensaje = mostrarMensaje;
 	}
 	
 	public void setDatafonoService(DatafonoService datafonoService) {

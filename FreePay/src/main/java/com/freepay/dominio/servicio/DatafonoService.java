@@ -27,11 +27,9 @@ public class DatafonoService {
 	
 	public boolean confirmarPago(Cobro cobro) throws ExcepcionNegocio, Exception {
 		try {
-			Cobro cobroConfirmar=datafonoRepository.consultarCobro(cobro.codigo());
-			if(cobroConfirmar==null)return false;
-			if(cobroConfirmar.estado()==1)return true;
-			return false;
-			
+			cobro=datafonoRepository.consultarCobro(cobro.codigo());
+			if(cobro==null)return false;			
+			return cobro.estado()==1;
 		} catch(Exception ex) {
 			throw ex;
 		}
