@@ -45,7 +45,7 @@
 					<br/>
 					
 					<center>
-						   <pe:qrCode id="qrCode" fontName="Ubuntu" fontColor="#194be3" ecLevel="H" radius="0.5"  renderMethod="canvas"  renderMode="2" size="200" text="#{generarCobroBean.codigoCobro}" label="FreePay"></pe:qrCode>
+						   <pe:qrCode id="qrCode" fontName="Ubuntu" fontColor="#194be3" ecLevel="H" radius="0"  renderMethod="canvas"  renderMode="2" size="200" text="#{generarCobroBean.codigoCobro}" label="FreePay"></pe:qrCode>
 					</center>
 					
 				</p:column>          	 
@@ -80,23 +80,24 @@
 					    <p:outputLabel style="font-weight: bold;width:80%;"  value="#{generarCobroBean.referencia}" />
 				</p:column>  		        	 
           	</p:row>
-          	
+          	<p:row>
+          	 	<p:column colspan="2">
+          	 		<p:messages id="msn" showDetail="true" showSummary="true"   ></p:messages>
+          	    </p:column>
+          	 </p:row>
              <p:row>
 				<p:column colspan="2">
-					<br/>
+					
 					<center>
           	 			<p:commandButton update="qrCode" value="Cancelar" ></p:commandButton>
           	 		</center>
           		</p:column>
           	 </p:row>
-          	 <p:row>
-          	 	<p:column colspan="2">
-          	 		<p:messages></p:messages>
-          	    </p:column>
-          	 </p:row>
-          </p:panelGrid>	
+          </p:panelGrid>	  
           
-            <ui:include  src="/View/resources/SessionTimeOut.xhtml" ></ui:include>
+          	<p:poll stop="#{!generarCobroBean.mostrarMensaje}" interval="5" listener="#{generarCobroBean.confirmarPago}" update="msn"  ></p:poll>
+          	
+          	<ui:include  src="/View/resources/SessionTimeOut.xhtml" ></ui:include>
            
      		</h:form>
      				

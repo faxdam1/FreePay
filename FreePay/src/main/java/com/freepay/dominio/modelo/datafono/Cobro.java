@@ -33,23 +33,23 @@ public class Cobro implements Entity<Cobro>  {
     }
     
     public int codigo() {
-		return codigo;
+		return this.codigo;
 	}
     
     public int codigoDatafono(){
-		return codigoDatafono;
+		return this.codigoDatafono;
 	}
 	
 	public String referencia(){
-		return referencia;
+		return this.referencia;
 	}
 	
 	public int valorPagar(){
-		return valorPagar;
+		return this.valorPagar;
 	}
 	
 	public int estado(){
-		return estado();
+		return this.estado;
 	}
 	    
     @Override
