@@ -21,6 +21,9 @@ public class TransaccionService {
 		    
 	    		String mensaje;
 	    		Cobro cobro=datafonoRepository.consultarCobro(codigoCobro);
+	    		if(cobro==null){
+	    			return "El codigo de cobro ingresado no existe.";
+	    		}
 		    	Cuenta cuenta=cuentaRepository.consultarCuenta(codigoCuenta);
 		    	Cuenta cuentaReferencia=cuentaRepository.consultarCuentaReferencia(cobro.codigoDatafono());
 		    	mensaje= cuenta.retirarSaldo(cobro.valorPagar());
