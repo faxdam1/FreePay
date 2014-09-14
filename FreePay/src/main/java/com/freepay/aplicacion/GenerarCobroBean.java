@@ -31,6 +31,7 @@ public class GenerarCobroBean  implements Serializable  {
 			cobro=datafonoService.generarCobro(1,cobro.referencia(),cobro.valorPagar());
 			ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
 			ec.redirect(ec.getRequestContextPath() + "/View/GenerarCobro/ConsultarCobroView.xhtml");
+			mostrarMensaje=true;
 		}catch (Exception ex) {
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Error", "Error en la creacion del cobro."));
 		}
