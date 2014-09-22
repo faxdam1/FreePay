@@ -7,6 +7,7 @@ import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.dao.DataAccessException;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.freepay.dominio.modelo.cuenta.Cuenta;
 import com.freepay.dominio.modelo.datafono.Cobro;
@@ -22,6 +23,7 @@ public class TransaccionRepository implements ITransaccionRepository {
 		this.hibernateTemplate = new HibernateTemplate(sessionFactory);
 	}
 	
+	@Transactional
 	public void procesarPago(Cuenta cuenta,Cuenta cuentaReferencia,Transaccion transaccionCompra,Transaccion transaccionVenta, Cobro cobro){
 		try{
 
