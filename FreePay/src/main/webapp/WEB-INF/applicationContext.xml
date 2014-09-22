@@ -100,7 +100,7 @@
 	</bean>
 	
 	<!--Inicializo Controlador-->
-	<bean id="generarCobroBean" class="com.freepay.aplicacion.GenerarCobroBean"  >
+	<bean id="generarCobroBean" class="com.freepay.aplicacion.GenerarCobroBean"  scope="session"  >
 		<property name="datafonoService" ref="datafonoService" ></property>
 	</bean> 
 	
